@@ -1,9 +1,16 @@
-<h1>Showing Student details</h1>
+<div class="container" id="show-container">
+<h2 class="text-center mt-4"><%= @student.student_name %></h2>
 
-<p><strong>Student Name: </strong> <%= @student.student_name %> </p>
-<p><strong>Email Id: </strong> <%= @student.email_id %> </p>
-<p><strong>Address: </strong> <%= @student.address %> </p>
-<p><strong>Contact Number: </strong> <%= @student.contact_number %> </p>
-<p><strong>Marks: </strong> <%= @student.marks %> </p></br>
 
-<td><%= link_to "EDIT YOUR DETAILS", edit_student_path(@student) %></td></br></br>
+
+  <div class="card mt-4" style="width: 22rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Student Name: <%= @student.student_name %> </li>
+      <li class="list-group-item">Email Id: <%= @student.email_id %> </li>
+      <li class="list-group-item">Address: <%= @student.address %> </li>
+      <li class="list-group-item">Contact Number: <%= @student.contact_number %> </li>
+      <li class="list-group-item">Marks: <%= @student.marks %> </li>
+      <li class="list-group-item"><%= link_to "EDIT", edit_student_path(@student)%></li>                             
+    </ul>
+  </div>
+  </div>

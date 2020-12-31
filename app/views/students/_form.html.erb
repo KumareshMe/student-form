@@ -1,3 +1,4 @@
+<div class="container">
 <% if @student.errors.any? %>
 
 	<h2>The following errors prevented from being saved</h2>
@@ -9,34 +10,44 @@
 <% end %>
 
 <%= form_with(model: @student, local: true) do |j| %>
+	<div class="form-group row">
+	  <%= j.label :student_name, class: "col-2 col-form-label" %>
+	  <div class="col-5">
+	  <%= j.text_field :student_name, class: "form-control" %>
+	  </div>
+	</div>
+	  
+    <div class="form-group row">
+	  <%= j.label :email_id, class: "col-2 col-form-label" %>
+	  <div class="col-5">
+	  <%= j.text_field :email_id, class: "form-control" %>
+	  </div>
+	</div>
 
-  <p>
-    <%= j.label :student_name %></br>
-    <%= j.text_field :student_name %>
-	</p>
-	
-	<p>
-		<%= j.label :email_id %></br>
-		<%= j.text_field :email_id %>
-	</p>
+	<div class="form-group row">
+	  <%= j.label :address, class: "col-2 col-form-label" %>
+	  <div class="col-5">
+	  <%= j.text_field :address, row: 5, class: "form-control" %>
+	  </div>
+	</div>
 
-	<p>
-		<%= j.label :address %></br>
-		<%= j.text_area :address %>
-	</p>
+	<div class="form-group row">
+	  <%= j.label :contact_number, class: "col-2 col-form-label" %>
+	  <div class="col-5">
+	  <%= j.text_field :contact_number, class: "form-control" %>
+	  </div>
+	</div>
 
-	<p>
-	  <%= j.label :contact_number %></br>
-	  <%= j.text_field :contact_number %>
-	</p>
-	
-	<p>
-		<%= j.label :marks %></br>
-		<%= j.text_field :marks %>
-    </p>
-    
-    <p>
-    <%= j.submit %>
-    </p>
-
-<% end %>
+	<div class="form-group row">
+	  <%= j.label :marks, class: "col-2 col-form-label" %>
+	  <div class="col-5">
+	  <%= j.text_field :marks, class: "form-control" %>
+	  </div>
+	</div>
+	  
+	<div class="form-group row">
+	  <%= j.submit class: "btn btn-outline" %>
+	  </div>
+  
+  <% end %>
+  </div>

@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+
+    background-color: black !important;
+    
+}
+
+.nav-link {
+    color: white !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-container {
+    margin-top: 25px;
+    background-image: asset-url('01.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 580px;
+}
+
+#index-container {
+    background-color: greenyellow;
+    background-position: center center;
+}
+
+#new-container {
+    background-color: greenyellow;
+    height: 580px;  
+}
+
+#show-container {
+    background-color: greenyellow; 
+}
+
+
+
+

@@ -17,6 +17,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
+    @student.user = User.first
     if @student.save
       flash[:notice] = "Your Details was saved successfully"
       redirect_to student_path(@student)

@@ -33,8 +33,8 @@
 	</div>
 	  
 	<div class="form-group row">
-	  <%= j.submit "SIGN UP", class: "btn btn-outline" %>
-	  </div>
+	  <%= j.submit(@user.new_record? ? "SIGN UP" : "Update account", class: "btn btn-outline") %>
+	</div>
   
   <% end %>
   </div>

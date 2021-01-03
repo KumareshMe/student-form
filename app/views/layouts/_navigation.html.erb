@@ -9,9 +9,21 @@
     <li class="nav-item active">
       <%= link_to "STUDENTS", students_path, class: "nav-link" %>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
+    <% if logged_in? %>
+      <li class="nav-item">
+      <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+      <%= link_to "LOGOUT", logout_path, class: "nav-link", method: :delete %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "LOGIN", login_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
+      <%= link_to "SIGNUP", signup_path, class: "nav-link" %>
+      </li>
+    <% end %>
     <li class="nav-item">
     <a class="nav-link">WELCOME TO STUDENT PORTAL PAGE!!!</a>
     </li>

@@ -8,9 +8,9 @@
         <li class="list-group-item">Address: <%= student.address %> </li>
         <li class="list-group-item">Contact Number: <%= student.contact_number %> </li>
         <li class="list-group-item">Marks: <%= student.marks %> </li>
-        <li class="list-group-item"><%= link_to "SHOW", student_path(student)%>
-                                    <%= link_to "EDIT", edit_student_path(student)%>
-                                    <%= link_to "DELETE", student_path(student), method: :delete, data: { confirm: "Are you sure?" } %></li>
+        <li class="list-group-item"><%= link_to "SHOW", student_path(student)%> </li>
+          <li class="list-group-item"><%= link_to "EDIT", edit_student_path(student)%> </li>
+          <li class="list-group-item"><%= link_to "DELETE", student_path(student), method: :delete, data: { confirm: "Are you sure?" } %></li>
       </ul>
     </div>
   <% end %>

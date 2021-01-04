@@ -1,31 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<%= link_to "STUDENT PORTAL", root_path, class: "navbar-brand", id: "logo" %>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
+  <%= link_to "STUDENT PORTAL", root_path, class: "navbar-brand", id: "logo" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-      <%= link_to "STUDENTS", students_path, class: "nav-link" %>
-    </li>
-    <% if logged_in? %>
-      <li class="nav-item">
-      <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-      <%= link_to "LOGOUT", logout_path, class: "nav-link", method: :delete %>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "LOGIN", login_path, class: "nav-link"%>
-      </li>
-      <li class="nav-item">
-      <%= link_to "SIGNUP", signup_path, class: "nav-link" %>
-      </li>
-    <% end %>
-    <li class="nav-item">
-    <a class="nav-link">WELCOME TO STUDENT PORTAL PAGE!!!</a>
-    </li>
-</div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "STUDENTS", students_path, class: "nav-link" %>
+        </li>
+        <% if logged_in? %>
+          <li class="nav-item">
+           <%= link_to current_user.username.upcase, user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "LOGOUT", logout_path, class: "nav-link", method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "LOGIN", login_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "SIGNUP", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
+    </div>
 </nav>

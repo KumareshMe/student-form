@@ -1,61 +1,61 @@
 <div class="container">
-<% if @student.errors.any? %>
 
-	<h2>The following errors prevented from being saved</h2>
-	<ul>
-		<% @student.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
+  <% if @student.errors.any? %>
+    <h2>The following errors prevented from being saved</h2>
+    <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_with(model: @student, local: true) do |j| %>
-	<div class="form-group row">
-	  <%= j.label :student_name, class: "col-2 col-form-label" %>
-	  <div class="col-5">
-	  <%= j.text_field :student_name, class: "form-control" %>
-	  </div>
+  <%= form_with(model: @student, local: true) do |j| %>
+    <div class="form-group row">
+      <%= j.label :student_name, class: "col-2 col-form-label" %>
+      <div class="col-5">
+      	<%= j.text_field :student_name, class: "form-control" %>
+    	</div>
 	</div>
 	  
-    <div class="form-group row">
+  <div class="form-group row">
 	  <%= j.label :email_id, class: "col-2 col-form-label" %>
 	  <div class="col-5">
-	  <%= j.text_field :email_id, class: "form-control" %>
+	  	<%= j.text_field :email_id, class: "form-control" %>
 	  </div>
 	</div>
 
 	<div class="form-group row">
 	  <%= j.label :address, class: "col-2 col-form-label" %>
 	  <div class="col-5">
-	  <%= j.text_field :address, row: 5, class: "form-control" %>
+	    <%= j.text_field :address, row: 5, class: "form-control" %>
 	  </div>
 	</div>
 
 	<div class="form-group row">
 	  <%= j.label :contact_number, class: "col-2 col-form-label" %>
 	  <div class="col-5">
-	  <%= j.text_field :contact_number, class: "form-control" %>
+	    <%= j.text_field :contact_number, class: "form-control" %>
 	  </div>
 	</div>
 
 	<div class="form-group row">
 	  <%= j.label :marks, class: "col-2 col-form-label" %>
 	  <div class="col-5">
-	  <%= j.text_field :marks, class: "form-control" %>
+	    <%= j.text_field :marks, class: "form-control" %>
 	  </div>
 	</div>
 
 	<div class="form-group row">
 	  <%= j.label :college, class: "col-2 col-form-label" %>
 	  <div class="col-5">
-	  <%= j.collection_select(:college_id, College.all, :id, :name,
+	    <%= j.collection_select(:college_id, College.all, :id, :name,
 	                          { prompt: "Make your selection"}, { multiple: true, class: "custom-select"} ) %>
 	  </div>
 	</div>
 	  
 	<div class="form-group row">
 	  <%= j.submit class: "btn btn-outline" %>
-	  </div>
+	</div>
   
   <% end %>
-  </div>
+</div>

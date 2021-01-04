@@ -1,5 +1,6 @@
 <div class="container" id="show-container">
-<h2 class="text-center mt-4"><%= @student.student_name %></h2>
+
+<h2 class="text-center mt-4"><%= @student.student_name.upcase %></h2>
 
   <div class="card mt-4" style="width: 22rem;">
     <ul class="list-group list-group-flush">
@@ -8,7 +9,11 @@
       <li class="list-group-item">Address: <%= @student.address %> </li>
       <li class="list-group-item">Contact Number: <%= @student.contact_number %> </li>
       <li class="list-group-item">Marks: <%= @student.marks %> </li>
-      <li class="list-group-item"><%= link_to "EDIT", edit_student_path(@student)%></li>                             
     </ul>
   </div>
+
+  <div class="text-center mt-4">
+    <%= link_to "EDIT YOUR BASIC DETAILS", edit_student_path(@student), class: "btn btn-outline-info" %></br></br>
+  </div>
+
 </div>

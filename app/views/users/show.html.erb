@@ -2,20 +2,5 @@
 
 <h2 class="text-center mt-4"><%= @user.username.upcase %>'s profile</h2>
 
-  <div class="card mt-4" style="width: 22rem;">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Student Name: <%= @student.student_name %> </li>
-      <li class="list-group-item">Email Id: <%= @student.email_id %> </li>
-      <li class="list-group-item">Address: <%= @student.address %> </li>
-      <li class="list-group-item">Contact Number: <%= @student.contact_number %> </li>
-      <li class="list-group-item">Marks: <%= @student.marks %> </li>
-    </ul>
-  </div>
-
-  <div class="text-center mt-4">
-    <%= link_to "CREATE YOUR BASIC DETAILS", new_student_path, class: "btn btn-outline-info" %></br></br>
-    <%= link_to "EDIT YOUR BASIC DETAILS", edit_student_path(@student), class: "btn btn-outline-info" %></br></br>
-    <%= link_to "EDIT YOUR USER PROFILE", edit_user_path(@user), class: "btn btn-outline-info" %>
-  </div>
-
+  <%= render 'students/student' %>
 </div>

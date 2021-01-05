@@ -48,8 +48,8 @@
 	<div class="form-group row">
 	  <%= j.label :college, class: "col-2 col-form-label" %>
 	  <div class="col-5">
-	    <%= j.collection_select(:college_id, College.all, :id, :name,
-	                          { prompt: "Make your selection"}, { multiple: true, class: "custom-select"} ) %>
+	    <%= j.collection_select(:college_ids, College.all, :id, :name,
+	                           { prompt: "Make your selection"}, { multiple: true, class: "custom-select"} ) %>
 	  </div>
 	</div>
 	  

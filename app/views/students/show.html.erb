@@ -2,13 +2,14 @@
 
 <h2 class="text-center mt-4"><%= @student.student_name.upcase %></h2>
 
-  <div class="card mt-4" style="width: 22rem;">
+  <div class="card mt-4" style="width: 32rem;">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Student Name: <%= @student.student_name %> </li>
       <li class="list-group-item">Email Id: <%= @student.email_id %> </li>
       <li class="list-group-item">Address: <%= @student.address %> </li>
       <li class="list-group-item">Contact Number: <%= @student.contact_number %> </li>
       <li class="list-group-item">Marks: <%= @student.marks %> </li>
+      <li class="list-group-item">Preferred College: <%= render @student.colleges %>  </li>
     </ul>
   </div>
 

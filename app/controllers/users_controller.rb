@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @student = @user.student
+    @students = @user.students
   end
 
   def create

@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @student = Student.all
+    @students = Student.all
   end
 
   def new
@@ -16,8 +16,9 @@ class StudentsController < ApplicationController
   end
 
   def create
+    byebug
     @student = Student.new(student_params)
-    @student.user_id = current_user.id 
+    @student.user = current_user
     if @student.save
       flash[:notice] = "Your Details was saved successfully"
       redirect_to student_path(@student)
@@ -48,6 +49,6 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:student_name, :email_id, 
-                                   :address, :contact_number, :marks, college_id: [])
+                                   :address, :contact_number, :marks, college_ids: [])
   end
 end

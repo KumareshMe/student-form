@@ -5,7 +5,7 @@ class CollegesController < ApplicationController
   end
     
   def index
-    @college = College.all
+    @colleges = College.all
   end
 
   def new
@@ -20,6 +20,20 @@ class CollegesController < ApplicationController
       else
         render 'new'
       end
+  end
+
+  def edit
+    @college = College.find(params[:id])
+  end
+
+  def update
+    @college = College.find(params[:id])
+    if @college.update(college_params)
+      flash[:notice] = "College was successfully updated"
+      redirect_to @college
+    else
+      render 'edit'
+    end
   end
 
   private

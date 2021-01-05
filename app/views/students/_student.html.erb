@@ -1,13 +1,15 @@
 <div class="container" id="index-container">
 
-  <% @student.each do |student| %>
-    <div class="card mt-4" style="width: 22rem;">
+  <% @students.each do |student| %>
+    <div class="card mt-4" style="width: 32rem;">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Student Name: <%= student.student_name %> </li>
         <li class="list-group-item">Email Id: <%= student.email_id %> </li>
         <li class="list-group-item">Address: <%= student.address %> </li>
         <li class="list-group-item">Contact Number: <%= student.contact_number %> </li>
         <li class="list-group-item">Marks: <%= student.marks %> </li>
+        <li class="list-group-item">Preferred College: <%= render student.colleges %> </li>
+
         <li class="list-group-item"><%= link_to "SHOW", student_path(student)%> </li>
         <li class="list-group-item"><%= link_to "EDIT", edit_student_path(student)%> </li>
         <li class="list-group-item"><%= link_to "DELETE", student_path(student), method: :delete, data: { confirm: "Are you sure?" } %></li>

@@ -1,0 +1,23 @@
+<% if @college.errors.any? %>
+
+	<h2>The following errors prevented from being saved</h2>
+	<ul>
+		<% @college.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_with(model: @college, local: true) do |j| %>
+	<div class="form-group row">
+	  <%= j.label :name, "College name", class: "col-2 col-form-label" %>
+	  <div class="col-5">
+	  <%= j.text_field :name, class: "form-control" %>
+	  </div>
+	</div>
+	  
+	<div class="form-group row">
+	  <%= j.submit class: "btn btn-outline" %>
+	</div>
+  
+  <% end %>

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   resources :colleges, except: [:destroy]
+  resources :courses, except: [:destroy]
 end

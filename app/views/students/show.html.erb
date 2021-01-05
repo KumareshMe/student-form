@@ -12,8 +12,11 @@
       <li class="list-group-item">Preferred College: <%= render @student.colleges %>  </li>
     </ul>
   </div>
+  
 
   <div class="text-center mt-4">
+    <%= link_to "CREATE YOUR BASIC DETAILS", new_student_path(@student), class: "btn btn-outline-info" %></br></br>
+
     <%= link_to "EDIT YOUR BASIC DETAILS", edit_student_path(@student), class: "btn btn-outline-info" %></br></br>
   </div>
 

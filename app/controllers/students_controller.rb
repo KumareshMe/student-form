@@ -16,7 +16,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-    byebug
     @student = Student.new(student_params)
     @student.user = current_user
     if @student.save

@@ -1,0 +1,15 @@
+<div class="container" id="index-container">
+  <h1 class="text-center mt-4">List Of Courses</h1>
+
+  <% @courses.each do |course| %>
+    <div class="card mt-4" style="width: 22rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Course Name: <%= course.name %> </li>
+      </ul>
+    </div>
+    <div class="text-center mt-4">
+    <%= link_to "EDIT COURSE NAME", edit_course_path(course), class: "btn btn-outline-info" %></br></br>
+  </div>
+  <% end %>
+  
+</div>

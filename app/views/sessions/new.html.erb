@@ -1,8 +1,6 @@
 <h2 class="text-center mt-4">Login your Profile</h2></br>
 <div class="container" id="new-container">
 
-<div class="container">
-
 </br>
 	<%= form_with(scope: :session, url: login_path, local: true) do |j| %>
 		  
@@ -20,10 +18,9 @@
 			</div>
 		</div>
 		
-		<div class="form-group row">
+		<div class="form-group row, text-center">
 			<%= j.submit "LOGIN", class: "btn btn-secondary" %>
 		</div></br>
 
   <% end %>
-</div>
 </div>

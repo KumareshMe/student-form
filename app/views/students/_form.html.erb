@@ -1,12 +1,17 @@
 <div class="container">
   </br>
   <% if @student.errors.any? %>
-  	<h3>Oops! The Following errors prevented from being saved</h3>
-  	<ul>
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	<h4 class="alert-heading">Oops! The Following errors prevented from being saved</h4>
+	<ul>
       <% @student.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-    </ul>
+	</ul>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+	</div>  	
   <% end %>
 
   </br>

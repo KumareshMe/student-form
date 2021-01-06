@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
+  before_action :set_course, only: [:show, :edit, :update]
 
   def show
-    @course = Course.find(params[:id])
   end
 
   def index
@@ -13,13 +13,12 @@ class CoursesController < ApplicationController
   end
 
   def edit
-      @course = Course.find(params[:id])
   end
 
   def create
     @course = Course.new(course_params)
     if @course.save
-      flash[:notice] = "Course was successfully created"
+      flash[:notice] = "Course Name was successfully created"
       redirect_to @course
     else
       render 'new'
@@ -27,9 +26,8 @@ class CoursesController < ApplicationController
   end
 
   def update
-    @course = Course.find(params[:id])
     if @course.update(course_params)
-      flash[:notice] = "Course was successfully updated"
+      flash[:notice] = "Course Name was successfully updated"
       redirect_to @course
     else
       render 'edit'
@@ -40,6 +38,10 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:name)
+  end
+
+  def set_course
+    @course = Course.find(params[:id])
   end
   
 end

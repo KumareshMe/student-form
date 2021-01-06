@@ -13,7 +13,7 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.username.upcase %>
+              <%= "(Admin)" if current_user.admin? %> <%= current_user.username.upcase %>
             </a>
                       
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

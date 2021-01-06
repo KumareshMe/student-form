@@ -1,5 +1,9 @@
 <h1 class="text-center mt-4">Edit Course</h1>
+<% if current_user.admin? %>
 <div class="container" id="new-container">
 </br>
   <%= render 'form' %>
+  <% else %></br>
+  <h2><center>Oops! Only Admin can edit Course</center></h2>
+  <% end %>
 </div>

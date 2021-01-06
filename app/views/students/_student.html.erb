@@ -12,7 +12,7 @@
         <li class="list-group-item">Preferred College: <%= render student.colleges %> </li>
         <li class="list-group-item">Preferred Course: <%= render student.courses %>  </li>
 
-        <% if logged_in? && student.user == current_user %>
+        <% if logged_in? && (student.user == current_user || current_user.admin?) %>
           <li class="list-group-item"><%= link_to "EDIT", edit_student_path(student), class: "btn btn-secondary"%> </li>
           <li class="list-group-item"><%= link_to "DELETE", student_path(student), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></li>
         <% end %>

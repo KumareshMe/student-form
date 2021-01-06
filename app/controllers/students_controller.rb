@@ -54,9 +54,9 @@ class StudentsController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @student.user
+    if current_user != @student.user && !current_user.admin?
       flash[:alert] = "Sorry! You can edit only your details"
-      redirect_to @student
+      redirect_to current_user
     end
   end
 end

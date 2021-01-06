@@ -1,6 +1,6 @@
+</br>
 <% if @course.errors.any? %>
-
-	<h2>The following errors prevented from being saved</h2>
+<h3>Oops! The Following errors prevented from being saved</h3>
 	<ul>
 		<% @course.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
@@ -16,19 +16,8 @@
 	  </div>
 	</div>
 
-	<div class="form-group row">
-	  <%= j.submit class: "btn btn-outline-info" %>
-	</div>
+	<div class="form-group row, text-center">
+	  <%= j.submit class: "btn btn-secondary" %>
+	</div></br>
   
-<% end %>
-
-
-<%= form_with(model: @course, local: true) do |i| %>
-  <div class="form-group row">
-    <%= i.label :choose_your_course, class: "col-2 col-form-label" %><div class="col-5">
-    <div class="col-8">
-      <%= i.collection_select(:course_ids, Course.all, :id, :name,
-                           { prompt: "Make your selection"}, { multiple: true, class: "custom-select"} ) %>
-    </div>
-  </div>
 <% end %>

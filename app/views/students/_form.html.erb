@@ -60,11 +60,10 @@
       <%= j.collection_select(:course_ids, Course.all, :id, :name,
                              {prompt: "Available Courses"}, { multiple: true, class: "custom-select"} ) %>
     </div>
-  </div>
+  </div></br>
 	  
-	<div class="form-group row">
-	  <%= j.submit class: "btn btn-secondary" %>
+	<div class="form-group row, text-center">
+	  <%= j.submit "Submit your Application Form", class: "btn btn-secondary" %>
 	</div></br>
-  
   <% end %>
 </div>

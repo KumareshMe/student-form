@@ -1,6 +1,6 @@
+</br>
 <% if @college.errors.any? %>
-
-	<h2>The following errors prevented from being saved</h2>
+<h3>Oops! The Following errors prevented from being saved</h3>
 	<ul>
 		<% @college.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
@@ -16,8 +16,8 @@
 	  </div>
 	</div>
 	  
-	<div class="form-group row">
-	  <%= j.submit class: "btn btn-outline" %>
-	</div>
+	<div class="form-group row, text-center">
+	  <%= j.submit class: "btn btn-secondary" %>
+	</div></br>
   
-  <% end %>
+<% end %>

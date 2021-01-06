@@ -1,15 +1,18 @@
 <div class="container">
 
+</br>
 <% if @user.errors.any? %>
-	<h2>The following errors prevented from being saved</h2>
+	<h3>Oops! The Following errors prevented from being saved</h3>
 	<ul>
 		<% @user.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
 		<% end %>
 	</ul>
 <% end %>
+
 </br>
 <%= form_with(model: @user, local: true) do |j| %>
+
 	<div class="form-group row">
 	  <%= j.label :username, class: "col-2 col-form-label" %>
 	  <div class="col-5">
@@ -27,12 +30,12 @@
 	<div class="form-group row">
 	  <%= j.label :password, class: "col-2 col-form-label" %>
 	  <div class="col-5">
-	    <%= j.text_field :password, row: 5, class: "form-control" %>
+	    <%= j.text_field :password, class: "form-control" %>
 	  </div>
 	</div>
 	  
 	<div class="form-group row">
-	  <%= j.submit(@user.new_record? ? "SIGN UP" : "Update account", class: "btn btn-outline-info") %>
+	  <%= j.submit(@user.new_record? ? "SIGN UP" : "Update account", class: "btn btn-secondary") %>
 	</div></br>
   
 <% end %>

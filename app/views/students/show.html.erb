@@ -1,14 +1,14 @@
 <h2 class="text-center mt-4"><%= @student.student_name.upcase %> Application Form</h2>
-
+</br>
 <div class="container" id="show-container"></br>
 
   <div class="card mt-4" style="width: 32rem;">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Student Name: <%= @student.student_name %> </li>
+      <li class="list-group-item">Student Name: <%= @student.student_name.capitalize %> </li>
       <li class="list-group-item">Email Id: <%= @student.email_id %> </li>
-      <li class="list-group-item">Address: <%= @student.address %> </li>
+      <li class="list-group-item">Contact Address: <%= @student.address %> </li>
       <li class="list-group-item">Contact Number: <%= @student.contact_number %> </li>
-      <li class="list-group-item">Marks: <%= @student.marks %> </li>
+      <li class="list-group-item">Marks Scored: <%= @student.marks %> </li>
 
       <li class="list-group-item">Preferred College: <%= render @student.colleges %>  </li>
       <li class="list-group-item">Preferred Course: <%= render @student.courses %>  </li>
@@ -18,10 +18,9 @@
   
   <div class="text-center mt-4">
     <% if @student.new_record? %>
-    <%= link_to "CREATE YOUR BASIC DETAILS", new_student_path(@student), class: "btn btn-outline-info" %></br></br>
+      <%= link_to "CREATE YOUR FORM", new_student_path(@student), class: "btn btn-secondary" %></br></br>
     <% else %>
-    <%= link_to "EDIT YOUR BASIC DETAILS", edit_student_path(@student), class: "btn btn-outline-info" %></br></br>
+      <%= link_to "EDIT YOUR FORM", edit_student_path(@student), class: "btn btn-secondary" %></br></br>
     <% end %>
-  </div>
   </div>
 </div>

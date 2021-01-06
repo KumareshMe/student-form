@@ -2,5 +2,5 @@
 
 <div class="container" id="new-container">
   <%= render 'form' %>
-  <td><%= link_to "Cancel and Back to the profile", student_path(@student) %></td> 
-</div></br></br>
+  <%= link_to "Cancel and Back to the profile", student_path(@student), class: "btn btn-secondary" %>
+</div></br>

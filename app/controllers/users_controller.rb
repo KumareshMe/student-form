@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to Student Portal #{@user.username}, you have successfully signedup"
-      redirect_to students_path
+      redirect_to new_student_path(@student)
     else
       render 'new'
     end
@@ -40,6 +42,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "Sorry! You can edit only your profile"
+      redirect_to @user
+    end
   end
 
 end

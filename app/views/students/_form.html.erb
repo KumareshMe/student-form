@@ -8,7 +8,7 @@
       <% end %>
     </ul>
   <% end %>
-
+		</br>
   <%= form_with(model: @student, local: true) do |j| %>
     <div class="form-group row">
       <%= j.label :student_name, class: "col-2 col-form-label" %>
@@ -52,10 +52,18 @@
 	                           { prompt: "Make your selection"}, { multiple: true, class: "custom-select"} ) %>
 	  </div>
 	</div>
+
+	<div class="form-group row">
+    <%= j.label :choose_your_course, class: "col-2 col-form-label" %>
+    <div class="col-5">
+      <%= j.collection_select(:course_ids, Course.all, :id, :name,
+                           { prompt: "Make your selection"}, { multiple: true, class: "custom-select"} ) %>
+    </div>
+  </div>
 	  
 	<div class="form-group row">
-	  <%= j.submit class: "btn btn-outline" %>
-	</div>
+	  <%= j.submit class: "btn btn-outline-info" %>
+	</div></br>
   
   <% end %>
 </div>

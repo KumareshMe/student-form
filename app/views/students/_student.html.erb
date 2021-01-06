@@ -9,12 +9,14 @@
         <li class="list-group-item">Contact Number: <%= student.contact_number %> </li>
         <li class="list-group-item">Marks: <%= student.marks %> </li>
         <li class="list-group-item">Preferred College: <%= render student.colleges %> </li>
+        <li class="list-group-item">Preferred Course: <%= render student.courses %>  </li>
 
-        <li class="list-group-item"><%= link_to "SHOW", student_path(student)%> </li>
-        <li class="list-group-item"><%= link_to "EDIT", edit_student_path(student)%> </li>
-        <li class="list-group-item"><%= link_to "DELETE", student_path(student), method: :delete, data: { confirm: "Are you sure?" } %></li>
-      </ul>
-    </div>
+        <% if logged_in? && student.user == current_user %>
+          <li class="list-group-item"><%= link_to "EDIT", edit_student_path(student)%> </li>
+          <li class="list-group-item"><%= link_to "DELETE", student_path(student), method: :delete, data: { confirm: "Are you sure?" } %></li>
+        <% end %>
+        </ul>
+    </div></br>
   <% end %>
 
 </div>

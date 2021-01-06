@@ -8,7 +8,7 @@
 		<% end %>
 	</ul>
 <% end %>
-
+</br>
 <%= form_with(model: @user, local: true) do |j| %>
 	<div class="form-group row">
 	  <%= j.label :username, class: "col-2 col-form-label" %>
@@ -32,8 +32,8 @@
 	</div>
 	  
 	<div class="form-group row">
-	  <%= j.submit(@user.new_record? ? "SIGN UP" : "Update account", class: "btn btn-outline") %>
-	</div>
+	  <%= j.submit(@user.new_record? ? "SIGN UP" : "Update account", class: "btn btn-outline-info") %>
+	</div></br>
   
 <% end %>
 </div>

@@ -9,9 +9,15 @@
         <li class="nav-item active">
           <%= link_to "STUDENTS", students_path, class: "nav-link" %>
         </li>
+
         <% if logged_in? %>
-          <li class="nav-item">
-           <%= link_to current_user.username.upcase, user_path(current_user), class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.username.upcase %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %><li class="nav-item">
+            </div>
           </li>
           <li class="nav-item">
             <%= link_to "LOGOUT", logout_path, class: "nav-link", method: :delete %>
@@ -21,7 +27,7 @@
             <%= link_to "LOGIN", login_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to "SIGNUP", signup_path, class: "nav-link" %>
+            <%= link_to "SIGNUP", signup_path, class: "btn btn-danger btn" %>
           </li>
         <% end %>
     </div>

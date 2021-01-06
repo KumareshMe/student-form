@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   def show
   end
 
@@ -48,6 +49,13 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:student_name, :email_id, 
-                                   :address, :contact_number, :marks, college_ids: [])
+                                   :address, :contact_number, :marks, college_ids: [], course_ids: [])
+  end
+
+  def require_same_user
+    if current_user != @student.user
+      flash[:alert] = "Sorry! You can edit only your details"
+      redirect_to @student
+    end
   end
 end

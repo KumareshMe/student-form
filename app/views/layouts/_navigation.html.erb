@@ -1,39 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "STUDENT FORM", root_path, class: "navbar-brand", id: "logo" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <% if logged_in? %>
+    <%= link_to "My Form", root_path, class: "navbar-brand", id: "logo" %>
+  <% else %>
+    <%= link_to "STUDENT PORTAL", root_path, class: "navbar-brand", id: "logo" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-      <% if logged_in? %>
-        <li class="nav-item active">
-          <%= link_to "STUDENTS DETAIL", students_path, class: "nav-link" %>
-        </li>
-      <% end %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <% if logged_in? %>
+      <li class="nav-item active">
+        <%= link_to "STUDENTS DETAIL", students_path, class: "nav-link" %>
+      </li>
+    <% end %>
 
-        <% if logged_in? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= "(Admin)" if current_user.admin? %> <%= current_user.username.upcase %>
-            </a>
-                      
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "Application Form", new_student_path, class: "dropdown-item" %>
-              <%= link_to "Edit your Profile", edit_user_path(current_user), class: "dropdown-item" %>
-            </div>
-            
-          </li>
-          <li class="nav-item">
-            <%= link_to "LOGOUT", logout_path, class: "nav-link", method: :delete %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "LOGIN", login_path, class: "nav-link"%>
-          </li>
-          <li class="nav-item">
-            <%= link_to "SIGNUP", signup_path, class: "btn btn-danger btn" %>
-          </li>
-        <% end %>
+    <% if logged_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= "(Admin)" if current_user.admin? %> <%= current_user.username.upcase %>
+        </a>
+       
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Application Form", new_student_path, class: "dropdown-item" %>
+          <%= link_to "Edit your Profile", edit_user_path(current_user), class: "dropdown-item" %>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "LOGOUT", logout_path, class: "nav-link", method: :delete %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "LOGIN", login_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to "SIGNUP", signup_path, class: "btn btn-danger btn" %>
+      </li>
+    <% end %>
     </div>
 </nav>

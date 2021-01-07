@@ -1,7 +1,9 @@
 <h2 class="text-center mt-4">STUDENT DETAILS</h2>
+
 <% if current_user.admin? %>
-</br>
+  </br>
   <%= render 'student' %>
+
 <% else %></br>
-    <h2><center>Oops! Only Admin can other student details</center></h2>
+  <h2><center>Oops! Only Admin can other student details</center></h2>
 <% end %>

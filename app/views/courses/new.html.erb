@@ -1,9 +1,10 @@
 <h1 class="text-center mt-4">Create New Course</h1>
 <% if current_user.admin? %>
-<div class="container" id="new-container">
-</br>
-  <%= render 'form' %>
-  <% else %></br>
+  <div class="container" id="new-container">
+    </br>
+    <%= render 'form' %>
+    
+<% else %></br>
   <h2><center>Oops! Only Admin can create Course</center></h2>
 <% end %>
 

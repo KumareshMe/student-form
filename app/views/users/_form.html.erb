@@ -1,47 +1,47 @@
 <div class="container">
+	</br>
+	<% if @user.errors.any? %>
+		<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	  <h4 class="alert-heading">Oops! The Following errors prevented from being saved</h4>
+	    <ul>
+		    <% @user.errors.full_messages.each do |msg| %>
+			    <li><%= msg %></li>
+		    <% end %>
+      </ul>
+      
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+		  </button>
+	  </div>  	
+	<% end %>
 
-</br>
-<% if @user.errors.any? %>
-	<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <h4 class="alert-heading">Oops! The Following errors prevented from being saved</h4>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-	    <li><%= msg %></li>
-    <% end %>
-  </ul>
-	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	    <span aria-hidden="true">&times;</span>
-	  </button>
-  </div>  	
-<% end %>
+  </br>
+  <%= form_with(model: @user, local: true) do |j| %>
 
-</br>
-<%= form_with(model: @user, local: true) do |j| %>
+    <div class="form-group row">
+      <%= j.label :username, class: "col-2 col-form-label" %>
+        <div class="col-5">
+          <%= j.text_field :username, class: "form-control" %>
+        </div>
+    </div>
+      
+    <div class="form-group row">
+      <%= j.label :email, class: "col-2 col-form-label" %>
+        <div class="col-5">
+          <%= j.email_field :email, class: "form-control" %>
+        </div>
+    </div>
 
-	<div class="form-group row">
-	  <%= j.label :username, class: "col-2 col-form-label" %>
-	  <div class="col-5">
-	    <%= j.text_field :username, class: "form-control" %>
-	  </div>
-	</div>
-	  
-  <div class="form-group row">
-	  <%= j.label :email, class: "col-2 col-form-label" %>
-	  <div class="col-5">
-	    <%= j.email_field :email, class: "form-control" %>
-	  </div>
-	</div>
-
-	<div class="form-group row">
-	  <%= j.label :password, class: "col-2 col-form-label" %>
-	  <div class="col-5">
-	    <%= j.text_field :password, class: "form-control" %>
-	  </div>
-	</div>
-	  
-	<div class="form-group row, text-center">
-	  <%= j.submit(@user.new_record? ? "SIGN UP" : "Update account", class: "btn btn-secondary") %>
-	</div></br>
+    <div class="form-group row">
+      <%= j.label :password, class: "col-2 col-form-label" %>
+        <div class="col-5">
+          <%= j.text_field :password, class: "form-control" %>
+        </div>
+    </div>
+      
+    <div class="form-group row, text-center">
+      <%= j.submit(@user.new_record? ? "SIGN UP" : "Update account", class: "btn btn-secondary") %>
+    </div></br>
   
-<% end %>
+  <% end %>
 </div>

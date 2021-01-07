@@ -1,19 +1,21 @@
 <h1 class="text-center mt-4">College List</h1>
-  <% if current_user.admin? %>
+
+<% if current_user.admin? %>
   <div class="container" id="index-container">
-  </br>
+    </br>
     <% @colleges.each do |college| %>
       <div class="card mt-4" style="width: 35rem;">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">College Name: <%= college.name %> </li>
         </ul>
       </div>
+      
       <div class="mt-2">
-      <%= link_to "EDIT COLLEGE NAME", edit_college_path(college), class: "btn btn-secondary" %></br></br>
-    </div>
+        <%= link_to "EDIT COLLEGE NAME", edit_college_path(college), class: "btn btn-secondary" %></br></br>
+      </div>
     <% end %>
-    <% else %></br>
-      <h2><center>Oops! Only Admin can view College list</center></h2>
-  <% end %>
-  
+
+<% else %></br>
+  <h2><center>Oops! Only Admin can view College list</center></h2>
+<% end %>
 </div>

@@ -16,6 +16,31 @@
       </li>
     <% end %>
 
+    <% if logged_in? && current_user.admin? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= "COLLEGE" %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Create New College", new_college_path, class: "dropdown-item" %>
+          <%= link_to "View College List", colleges_path, class: "dropdown-item" %>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      </li>
+    <% end %>
+
+    <% if logged_in? && current_user.admin? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= "COURSE" %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Create New Course", new_course_path, class: "dropdown-item" %>
+          <%= link_to "View Course List", courses_path, class: "dropdown-item" %>
+        </div>
+      </li>
+    <% end %>
+
     <% if logged_in? %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

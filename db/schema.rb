@@ -24,11 +24,6 @@ ActiveRecord::Schema.define(version: 2021_01_05_133720) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "student_colleges", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "college_id"
-  end
-
   create_table "student_courses", force: :cascade do |t|
     t.integer "student_id"
     t.integer "course_id"

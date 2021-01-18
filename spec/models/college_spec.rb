@@ -15,7 +15,7 @@ RSpec.describe College, type: :model do
     end
     
     it "college name should be maximum of 25 characters" do
-      subject = College.new(name: "kamaraj college of engineering and technology, Madurai")
+      subject = College.new(name: "kamaraj college of engineering and technology")
       expect(subject).not_to be_valid
     end
     

@@ -19,8 +19,16 @@ RSpec.describe "StudentsController", type: :request do
   #     student = Student.create!(student_name: "kumar", email_id: "kumar@gmail.com", address: "Hi I am Kumar",
   #                           contact_number: "9876543210", marks: "456", user_id: @user.id)
   #     get student_path(student)
-  #     expect(response.body).to include("CREATE YOUR FORM")
+  #     expect(response.body).to include("EDIT YOUR FORM")
   #   end
   # end
+
+  describe "GET /new" do
+    it "New Student" do
+      get new_student_path
+      expect(response.body).to include("Fill the Application Form")
+    end
+  end
+
 
 end
